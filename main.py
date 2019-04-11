@@ -46,3 +46,6 @@ X_test = test.drop('Id', axis=1)
 Xmat = pd.concat([X_train, X_test])
 Xmat = Xmat.drop(['LotFrontage','MasVnrArea','GarageYrBlt'], axis=1)
 Xmat = Xmat.fillna(Xmat.median())
+
+# add a new feature 'total sqfootage'
+Xmat['TotalSF'] = Xmat['TotalBsmtSF'] + Xmat['1stFlrSF'] + Xmat['2ndFlrSF']
